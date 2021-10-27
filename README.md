@@ -1,5 +1,7 @@
 Professional CUDA C Programming
 ===============================
+参考此书学习cuda编程，GPU: GTX1060
+===============================
 
 1. Included in CodeSample/ are the code files for any samples used in the chapters as
 illustrative examples.

@@ -1,5 +1,4 @@
-#include "../common/common.h"
-#include <stdio.h>
+#include<stdio.h>
 
 /*
  * A simple introduction to programming in CUDA. This program prints "Hello
@@ -16,7 +15,7 @@ int main(int argc, char **argv)
     printf("Hello World from CPU!\n");
 
     helloFromGPU<<<1, 10>>>();
-    CHECK(cudaDeviceReset());
+    cudaDeviceReset();
     return 0;
 }
 
