@@ -1,13 +1,22 @@
-#include "../common/common.h"
 #include <cuda_runtime.h>
 #include <stdio.h>
+#include "..\\common\\common.h"
 
+// #define CHECK(call){
+//     const cudaError_t error = call;
+//     if(error != cudaSuccess){
+//         printf("Error: %s:%d, ", __FILE__, __LINE__);
+//         printf("code:%d, reason: %s\n", error, cudaGetErrorString(error));
+//         exit(1);
+//     }
+// }
 /*
  * This example demonstrates a simple vector sum on the GPU and on the host.
  * sumArraysOnGPU splits the work of the vector sum across CUDA threads on the
  * GPU. Only a single thread block is used in this small case, for simplicity.
  * sumArraysOnHost sequentially iterates through vector elements on the host.
  */
+
 
 void checkResult(float *hostRef, float *gpuRef, const int N)
 {

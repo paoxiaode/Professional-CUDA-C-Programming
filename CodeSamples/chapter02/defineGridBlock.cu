@@ -1,6 +1,6 @@
-#include "../common/common.h"
 #include <cuda_runtime.h>
 #include <stdio.h>
+#include "..\\common\\common.h"
 
 /*
  * Demonstrate defining the dimensions of a block of threads and a grid of
@@ -33,7 +33,7 @@ int main(int argc, char **argv)
     printf("grid.x %d block.x %d \n", grid.x, block.x);
 
     // reset device before you leave
-    CHECK(cudaDeviceReset());
+    cudaDeviceReset();
 
     return(0);
 }
