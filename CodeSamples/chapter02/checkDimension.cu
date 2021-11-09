@@ -1,5 +1,6 @@
 #include<cuda_runtime.h>
 #include<stdio.h>
+#include "..\\common\\common.h"
 
 /*
  * Display the dimensionality of a thread block and grid from the host and

@@ -1,4 +1,4 @@
-#include "../common/common.h"
+#include "..\\common\\common.h"
 #include <cuda_runtime.h>
 #include <stdio.h>
 
@@ -135,10 +135,10 @@ int main(int argc, char **argv)
     CHECK(cudaMemcpy(d_MatB, h_B, nBytes, cudaMemcpyHostToDevice));
 
     // invoke kernel at host side
-    int dimx = 32;
+    int dimx = 128;
     dim3 block(dimx, 1);
     dim3 grid((nx + block.x - 1) / block.x, 1);
-
+    
     iStart = seconds();
     sumMatrixOnGPU1D<<<grid, block>>>(d_MatA, d_MatB, d_MatC, nx, ny);
     CHECK(cudaDeviceSynchronize());

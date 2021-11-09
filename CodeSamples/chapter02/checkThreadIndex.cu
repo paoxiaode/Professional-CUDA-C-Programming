@@ -1,4 +1,4 @@
-#include "../common/common.h"
+#include "..\\common\\common.h"
 #include <cuda_runtime.h>
 #include <stdio.h>
 
@@ -40,6 +40,7 @@ __global__ void printThreadIndex(int *A, const int nx, const int ny)
     printf("thread_id (%d,%d) block_id (%d,%d) coordinate (%d,%d) global index"
            " %2d ival %2d\n", threadIdx.x, threadIdx.y, blockIdx.x, blockIdx.y,
            ix, iy, idx, A[idx]);
+    
 }
 
 int main(int argc, char **argv)
@@ -80,6 +81,7 @@ int main(int argc, char **argv)
     // set up execution configuration
     dim3 block(4, 2);
     dim3 grid((nx + block.x - 1) / block.x, (ny + block.y - 1) / block.y);
+    printf("%d %d\n", grid.x, grid.y);
 
     // invoke the kernel
     printThreadIndex<<<grid, block>>>(d_MatA, nx, ny);

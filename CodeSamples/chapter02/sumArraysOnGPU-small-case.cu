@@ -94,7 +94,7 @@ int main(int argc, char **argv)
     // initialize data at host side
     initialData(h_A, nElem);
     initialData(h_B, nElem);
-
+    // 对主机端记录结果的数据进行初始化
     memset(hostRef, 0, nBytes);
     memset(gpuRef,  0, nBytes);
 

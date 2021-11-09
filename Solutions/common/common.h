@@ -1,4 +1,5 @@
-#include <sys/time.h>
+#include <time.h>
+#include <windows.h>
 
 #ifndef _COMMON_H
 #define _COMMON_H
@@ -11,6 +12,7 @@
         fprintf(stderr, "Error: %s:%d, ", __FILE__, __LINE__);                 \
         fprintf(stderr, "code: %d, reason: %s\n", error,                       \
                 cudaGetErrorString(error));                                    \
+        exit(1);                                                               \
     }                                                                          \
 }
 
@@ -63,11 +65,30 @@
     }                                                                          \
 }
 
+int gettimeofday(struct timeval *tp, void *tzp)
+{
+  time_t clock;
+  struct tm tm;
+  SYSTEMTIME wtm;
+  GetLocalTime(&wtm);
+  tm.tm_year   = wtm.wYear - 1900;
+  tm.tm_mon   = wtm.wMonth - 1;
+  tm.tm_mday   = wtm.wDay;
+  tm.tm_hour   = wtm.wHour;
+  tm.tm_min   = wtm.wMinute;
+  tm.tm_sec   = wtm.wSecond;
+  tm. tm_isdst  = -1;
+  clock = mktime(&tm);
+  tp->tv_sec = clock;
+  tp->tv_usec = wtm.wMilliseconds * 1000;
+  return (0);
+}
+
 inline double seconds()
 {
     struct timeval tp;
-    struct timezone tzp;
-    int i = gettimeofday(&tp, &tzp);
+    // struct timezone tzp;
+    int i = gettimeofday(&tp, NULL);
     return ((double)tp.tv_sec + (double)tp.tv_usec * 1.e-6);
 }
 

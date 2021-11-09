@@ -1,4 +1,4 @@
-#include "../common/common.h"
+#include "..\\common\\common.h"
 #include <cuda_runtime.h>
 #include <stdio.h>
 
@@ -116,6 +116,7 @@ int main(int argc, char **argv)
     // invoke kernel at host side
     int iLen = 512;
     dim3 block (iLen);
+    printf("%d %d %d \n",block.x, block.y, block.z);
     dim3 grid  ((nElem + block.x - 1) / block.x);
 
     iStart = seconds();
