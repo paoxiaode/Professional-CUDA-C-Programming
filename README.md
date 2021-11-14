@@ -1,10 +1,12 @@
 Professional CUDA C Programming
 ===============================
-参考此书学习cuda编程，GPU: GTX1060
-===============================
+
+参考此书学习cuda编程，环境：GPU: GTX1060+win11
+
+有遇到运行问题可以访问[我的博客](https://lostland.top)，可能有所解答。
 
 1. Included in CodeSample/ are the code files for any samples used in the chapters as
-illustrative examples.
+   illustrative examples.
 
 Each chapter has its own code folder that includes the sample .c and .cu files
 for that chapter. The per-chapter folders each also include a Makefile that can
@@ -20,15 +22,17 @@ folders each also include a Makefile that can be used to build the solutions
 included.
 
 3. The common/ directory contains common.h, which includes code that is common to
-multiple chapters.
-
+   multiple chapters.
 
 Versions
-===============================
+========
+
 June 14, 2015
+
 - Fix bugs in reduction and transpose examples.
 - Compile with -arch=sm_20 instead of the newer -arch=sm_30.
 - Immediately exit on error.
 
 January 16, 2015
+
 - First version of all code samples.

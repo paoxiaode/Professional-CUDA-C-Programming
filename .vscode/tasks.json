@@ -22,6 +22,30 @@
 				"isDefault": true
 			},
 			"detail": "编译器: cl.exe"
+		},
+		{
+			"type": "shell",
+			"label": "nvcc(dynamic link)",
+			"command": "nvcc",
+			"args": [
+				"${file}",
+				"-o",
+				"${fileDirname}\\${fileBasenameNoExtension}.exe",
+				"-arch=sm_60",
+				"-lcudadevrt",
+				"--relocatable-device-code=true",
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$msCompile"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "编译器: cl.exe"
 		}
 	]
 }
