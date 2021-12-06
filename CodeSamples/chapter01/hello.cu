@@ -8,6 +8,7 @@
 __global__ void helloFromGPU()
 {
     printf("Hello World from GPU!\n");
+    printf("for something new\n");
 }
 
 int main(int argc, char **argv)
